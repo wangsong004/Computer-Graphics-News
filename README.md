@@ -26,3 +26,12 @@
 - 核心进展：Procedura 将文本生成的 3D 形状表示为由命名部件组成的程序化装配，而不是不可编辑的稠密网格。智能体先规划装配图，再逐部件生成参数化程序；每个部件必须通过编译、配合（mate）和连通性检查，视觉 critic 再逐项修正，同时保留部件材质和可验证关节。
 - 值得关注：这种“3D shape as code”路线直接产出可编辑、带部件结构的模型，并在 P3D-Bench 与 MechBench-36 上报告优于已有原生 3D 生成器和 3D-code agent，尤其适合机械/硬表面建模与后续 CAD、仿真流程。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2608.26238) · [项目主页](https://spatiaos.github.io/projects/procedura/) · [官方代码库](https://github.com/SpatiaOS/Procedura)
+
+## 2026-08-29
+
+### RefracGS：面向折射水面的 3D Gaussian 光线追踪新视图合成
+
+- 类型：论文与开源项目（ECCV 2026；Graphics，cs.GR）
+- 核心进展：RefracGS 将折射水面建模为神经高度场，将水下场景表示为 3D Gaussian 场，并用遵循 Snell 定律的折射感知 Gaussian 光线追踪计算非直线光路。水面和场景表示进行端到端联合优化，从而同时恢复波面与水下场景的新视图。
+- 值得关注：它针对 NeRF/3DGS 假设光线直线传播在非平面水面下产生严重伪影的问题；项目页报告在复杂波面场景上实现更高视觉质量、约 15 倍更快训练和约 200 FPS 实时渲染，并提供代码与数据集。
+- 来源：[arXiv 修订版论文页面](https://arxiv.org/abs/2603.21695) · [项目主页](https://yimgshao.github.io/refracgs/) · [官方代码库](https://github.com/yimgshao/refracgs) · [数据集](https://huggingface.co/datasets/yimingshao1/refracgs_dataset)
