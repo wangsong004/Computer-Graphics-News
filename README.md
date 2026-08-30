@@ -35,3 +35,12 @@
 - 核心进展：RefracGS 将折射水面建模为神经高度场，将水下场景表示为 3D Gaussian 场，并用遵循 Snell 定律的折射感知 Gaussian 光线追踪计算非直线光路。水面和场景表示进行端到端联合优化，从而同时恢复波面与水下场景的新视图。
 - 值得关注：它针对 NeRF/3DGS 假设光线直线传播在非平面水面下产生严重伪影的问题；项目页报告在复杂波面场景上实现更高视觉质量、约 15 倍更快训练和约 200 FPS 实时渲染，并提供代码与数据集。
 - 来源：[arXiv 修订版论文页面](https://arxiv.org/abs/2603.21695) · [项目主页](https://yimgshao.github.io/refracgs/) · [官方代码库](https://github.com/yimgshao/refracgs) · [数据集](https://huggingface.co/datasets/yimingshao1/refracgs_dataset)
+
+## 2026-08-30
+
+### Hamiltonian Two-Way Coupling：非线性波浪与 3D 流体的双向耦合
+
+- 类型：论文（ACM TOG / SIGGRAPH Asia 2026；Graphics，cs.GR）
+- 核心进展：该工作基于经典 Zakharov 形式构建兼具非线性与色散效应的 2D 波浪模型，并利用其 Hamiltonian 结构，将水面高度和势函数作为正则变量，与局部 3D Navier-Stokes 流体求解器进行一致的双向耦合。信息能够更平滑地穿过 2D/3D 接口，从而抑制反射与接缝伪影。
+- 值得关注：论文报告其 2D 求解器的平均波高误差比 SWE、BEM 和 Airy 基线低 1.7-5 倍，同时比 BEM 快超过 1000 倍；完整耦合系统在同一域上比纯 GPU NB-FLIP 仿真快 4 倍以上，为大尺度海面中局部高细节流体模拟提供了实用路线。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2608.25203) · [ACM DOI](https://doi.org/10.1145/3842540)
