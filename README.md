@@ -44,3 +44,12 @@
 - 核心进展：该工作基于经典 Zakharov 形式构建兼具非线性与色散效应的 2D 波浪模型，并利用其 Hamiltonian 结构，将水面高度和势函数作为正则变量，与局部 3D Navier-Stokes 流体求解器进行一致的双向耦合。信息能够更平滑地穿过 2D/3D 接口，从而抑制反射与接缝伪影。
 - 值得关注：论文报告其 2D 求解器的平均波高误差比 SWE、BEM 和 Airy 基线低 1.7-5 倍，同时比 BEM 快超过 1000 倍；完整耦合系统在同一域上比纯 GPU NB-FLIP 仿真快 4 倍以上，为大尺度海面中局部高细节流体模拟提供了实用路线。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2608.25203) · [ACM DOI](https://doi.org/10.1145/3842540)
+
+## 2026-09-01
+
+### Domain-Varying 2D Green's Functions：用于笼式变形的域变化 Green 函数
+
+- 类型：论文（SIGGRAPH Asia 2026；Graphics，cs.GR）
+- 核心进展：该工作用 domain-varying Green's functions 重新理解 cage-based deformation，统一 Harmonic Coordinates 与 Green Coordinates。通过控制 Green 函数的定义域，变形可在 cage-consistent 与 shape-preserving 两种性质之间连续调节；圆形和矩形域还支持解析或半解析表达式，圆形域中的 2D simplicial cage 可避免数值积分。
+- 值得关注：它为笼式变形提供了一个可调的统一框架，既保留控制笼的一致性，又能按需要减少形状失真；解析/半解析形式也有助于构建更快、更稳定的交互式几何处理工具。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2608.31003) · [ACM DOI](https://doi.org/10.1145/3829340.3842236)
