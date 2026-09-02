@@ -53,3 +53,12 @@
 - 核心进展：该工作用 domain-varying Green's functions 重新理解 cage-based deformation，统一 Harmonic Coordinates 与 Green Coordinates。通过控制 Green 函数的定义域，变形可在 cage-consistent 与 shape-preserving 两种性质之间连续调节；圆形和矩形域还支持解析或半解析表达式，圆形域中的 2D simplicial cage 可避免数值积分。
 - 值得关注：它为笼式变形提供了一个可调的统一框架，既保留控制笼的一致性，又能按需要减少形状失真；解析/半解析形式也有助于构建更快、更稳定的交互式几何处理工具。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2608.31003) · [ACM DOI](https://doi.org/10.1145/3829340.3842236)
+
+## 2026-09-02
+
+### ARAP Gaussian Radiance Fields：高斯辐射场的尽可能刚性变形
+
+- 类型：论文与开源项目（IEEE TVCG；Graphics，cs.GR）
+- 核心进展：该方法面向 3D Gaussian Splatting 的交互式尽可能刚性（ARAP）变形。完成高斯几何编辑后，它进一步优化高斯，使光栅化结果与目标辐射场保持一致；径向特征用于描述变形前后的辐射差异，自适应各向异性空间低通滤波器则抑制采样混叠并适应非均匀采样间隔。
+- 值得关注：传统 3DGS 变形往往只移动高斯中心、尺度和方向，几何与最终渲染的辐射场不一致时容易出现伪影。该工作把辐射场一致性纳入变形过程，在保持 3DGS 高质量和实时渲染效率的同时支持大幅交互式编辑，并提供可运行的官方实现。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2608.29538) · [官方代码库](https://github.com/XinhaoT/ARAP-Deformation-of-Gaussian-Radiance-Fields) · [IEEE DOI](https://doi.org/10.1109/TVCG.2025.3555404)
