@@ -80,3 +80,12 @@
 - 核心进展：TileGS 将传统全局排序的长 tile 流重组为多个更短的局部深度区间，在前到后顺序下进行光栅化，并在粗粒度排序不足时执行选择性修复。论文在 9 个场景和 Ada GPU 上评测，默认 No-GW 版本在 RTX 4090 上实现平均 1.44 倍光栅内核加速，端到端帧率相对 gsplat 在 RTX 4090 和 RTX 1000 Ada 上分别提升 1.069 倍和 1.094 倍。
 - 值得关注：它把 3DGS 性能瓶颈定位到 tile 遍历和几何属性访问，而不是简单追求更高占用率或更少字节流量；在几乎不改变画质（相对 gsplat 的 PSNR、SSIM、LPIPS 差异均小于 0.001）的前提下减少线程指令，为实时 Gaussian Splatting 渲染器优化提供了可复现的系统方向。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.03613)
+
+## 2026-09-07
+
+### UniMate：用统一模型动画化多样骨架
+
+- 类型：论文与开源项目（SIGGRAPH Asia 2026；Graphics，cs.GR）
+- 核心进展：UniMate 从带 rig 的 3D 资产和文本提示生成任意骨架的关节运动，无需测试时优化或按骨架重新训练。其拓扑感知扩散 Transformer 将关节关系与测地距离偏置、面向任意运动树的谱旋转位置编码，以及由静止姿态汇聚的全局拓扑条件结合起来；作者还整理了涵盖双足、四足、鸟类、海洋生物、昆虫、蛇形和铰接刚体的 UniML3D 数据集，共 13,006 条动作序列。
+- 值得关注：现有学习式动画器通常依赖类别模板或特定骨架微调，难以覆盖自动 rigging 产生的异构资产。UniMate 在零样本跨拓扑迁移、动作插值、动作扩展和文本编辑上提供统一接口，项目主页同时开放代码、数据集和交互演示，便于复现和接入角色动画流程。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.05415) · [项目主页](https://linzhanmou.com/unimate/) · [官方代码库](https://github.com/Friedrich-M/UniMate) · [UniML3D 数据集](https://huggingface.co/collections/Linzhan/unimate)
