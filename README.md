@@ -89,3 +89,12 @@
 - 核心进展：UniMate 从带 rig 的 3D 资产和文本提示生成任意骨架的关节运动，无需测试时优化或按骨架重新训练。其拓扑感知扩散 Transformer 将关节关系与测地距离偏置、面向任意运动树的谱旋转位置编码，以及由静止姿态汇聚的全局拓扑条件结合起来；作者还整理了涵盖双足、四足、鸟类、海洋生物、昆虫、蛇形和铰接刚体的 UniML3D 数据集，共 13,006 条动作序列。
 - 值得关注：现有学习式动画器通常依赖类别模板或特定骨架微调，难以覆盖自动 rigging 产生的异构资产。UniMate 在零样本跨拓扑迁移、动作插值、动作扩展和文本编辑上提供统一接口，项目主页同时开放代码、数据集和交互演示，便于复现和接入角色动画流程。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.05415) · [项目主页](https://linzhanmou.com/unimate/) · [官方代码库](https://github.com/Friedrich-M/UniMate) · [UniML3D 数据集](https://huggingface.co/collections/Linzhan/unimate)
+
+## 2026-09-10
+
+### InstantMimic：数秒内训练物理角色技能的全 GPU 系统
+
+- 类型：论文与项目页（SIGGRAPH Asia 2026；Graphics，cs.GR）
+- 核心进展：InstantMimic 将物理仿真、环境计算、策略推理和策略更新整合进统一的 GPU 原生执行流，减少碎片化 GPU kernel 与关键路径 CPU 内存访问造成的硬件空转。作者报告多类物理动作可在数秒内完成训练；项目页展示的走路、旋踢和后空翻策略分别约用 1.5、1.9 和 2.6 秒。
+- 值得关注：物理角色控制的瓶颈不仅在求解器，也常来自强化学习端到端管线的调度和数据搬运。InstantMimic 从系统层面压缩训练延迟，使交互式动作迭代以及 LLM 智能体驱动的超参数搜索更具可行性；官方代码仓库已经建立，但截至收录时仍标注为即将发布。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.09821) · [项目主页](https://scripter36.github.io/projects/instantmimic/) · [官方代码仓库（待发布）](https://github.com/Scripter36/InstantMimic)
