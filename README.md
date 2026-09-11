@@ -98,3 +98,12 @@
 - 核心进展：InstantMimic 将物理仿真、环境计算、策略推理和策略更新整合进统一的 GPU 原生执行流，减少碎片化 GPU kernel 与关键路径 CPU 内存访问造成的硬件空转。作者报告多类物理动作可在数秒内完成训练；项目页展示的走路、旋踢和后空翻策略分别约用 1.5、1.9 和 2.6 秒。
 - 值得关注：物理角色控制的瓶颈不仅在求解器，也常来自强化学习端到端管线的调度和数据搬运。InstantMimic 从系统层面压缩训练延迟，使交互式动作迭代以及 LLM 智能体驱动的超参数搜索更具可行性；官方代码仓库已经建立，但截至收录时仍标注为即将发布。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.09821) · [项目主页](https://scripter36.github.io/projects/instantmimic/) · [官方代码仓库（待发布）](https://github.com/Scripter36/InstantMimic)
+
+## 2026-09-11
+
+### Gaussian Light Transport：用 13D 高斯混合直接求解全局光照
+
+- 类型：论文与项目页（SIGGRAPH Asia 2026 Conference Track；Graphics，cs.GR）
+- 核心进展：Gaussian Light Transport 将光传输方程的解表示为覆盖位置、方向、表面法线和材质属性的 13D Gaussian mixture，并直接最小化 rendering equation residual，而不是使用传统 Neumann series。作者还提出高效 culling 策略，使高维高斯的优化保持可行并支持实时评估。
+- 值得关注：该表示能够从任意视点快速渲染视角无关的全局光照，项目页和论文摘要报告渲染时间达到毫秒级，同时只需传统神经渲染方法一小部分的内存。它为可复用、低延迟的全局光照表示提供了区别于 NeRF/3DGS 的新路线。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.11430) · [作者项目主页](https://patrick-attimont.com/projects/gaussian-light-transport/)
