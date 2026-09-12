@@ -107,3 +107,12 @@
 - 核心进展：Gaussian Light Transport 将光传输方程的解表示为覆盖位置、方向、表面法线和材质属性的 13D Gaussian mixture，并直接最小化 rendering equation residual，而不是使用传统 Neumann series。作者还提出高效 culling 策略，使高维高斯的优化保持可行并支持实时评估。
 - 值得关注：该表示能够从任意视点快速渲染视角无关的全局光照，项目页和论文摘要报告渲染时间达到毫秒级，同时只需传统神经渲染方法一小部分的内存。它为可复用、低延迟的全局光照表示提供了区别于 NeRF/3DGS 的新路线。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.11430) · [作者项目主页](https://patrick-attimont.com/projects/gaussian-light-transport/)
+
+## 2026-09-12
+
+### CVQPG：用二次相位 Gaussian Splatting 表示计算机生成全息
+
+- 类型：论文（SIGGRAPH Asia 2026 Technical Communications；Graphics，cs.GR）
+- 核心进展：Hologram Representation via Quadratic Phase Gaussian Splatting 提出 Complex-Valued Quadratic Phase Gaussian（CVQPG），将 2D Gaussian Splatting 中的平坦相位基元替换为带可学习曲率参数的二次相位函数，并为每个基元推导尺度自适应的曲率控制，以避免高频混叠。
+- 值得关注：在相同参数量下，论文报告全息重建质量平均提升 RGB +0.19 dB、灰度 +0.33 dB，并观察到中高频细节保留更好。它以每个基元一个额外参数的轻量代价增强波前表达能力，为全息显示和高频图像表示提供了可直接接入 Gaussian 渲染管线的改进方向。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.11434) · [arXiv HTML 全文](https://arxiv.org/html/2609.11434v1)
