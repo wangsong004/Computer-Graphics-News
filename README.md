@@ -116,3 +116,12 @@
 - 核心进展：Hologram Representation via Quadratic Phase Gaussian Splatting 提出 Complex-Valued Quadratic Phase Gaussian（CVQPG），将 2D Gaussian Splatting 中的平坦相位基元替换为带可学习曲率参数的二次相位函数，并为每个基元推导尺度自适应的曲率控制，以避免高频混叠。
 - 值得关注：在相同参数量下，论文报告全息重建质量平均提升 RGB +0.19 dB、灰度 +0.33 dB，并观察到中高频细节保留更好。它以每个基元一个额外参数的轻量代价增强波前表达能力，为全息显示和高频图像表示提供了可直接接入 Gaussian 渲染管线的改进方向。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.11434) · [arXiv HTML 全文](https://arxiv.org/html/2609.11434v1)
+
+## 2026-09-14
+
+### SNAP3D：让单图像部件级 3D 生成具备可装配物理结构
+
+- 类型：论文、项目页与开源代码（Graphics，cs.GR）
+- 核心进展：SNAP3D 面向单张图像的部件级 3D 生成，先消除部件间穿插并恢复邻接部件的接触图，再在接触面加入参数化连接件，通过物理仿真反馈优化连接件的位置、方向和尺寸，使生成结果在保持几何质量的同时具备稳定装配结构。
+- 值得关注：它把“看起来完整”的 3D 资产推进到可验证的物理装配：论文新增了直接测试重力下装配有效性与稳定性的评估协议，官方项目页还展示了刚体仿真和无需胶水、紧固件的桌面 FDM 打印装配。这对可编辑建模、仿真和从图像到制造的工作流都有直接价值。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.13146) · [项目主页](https://lucytuan.github.io/SNAP3D/) · [官方代码库](https://github.com/LucyTuan/SNAP3D)
