@@ -143,3 +143,12 @@
 - 核心进展：MoQSplat 将 3DGS 场景映射到 Media over QUIC（MoQ）传输层级：空间区域组成 Tracks，高斯聚类组成 Groups，不同渐进质量层组成独立流上的 Subgroups，从而减少连接级队头阻塞。客户端依据 6-DoF 视锥可见性、距离和注视中心动态订阅空间区域与质量层，并采用无状态、由订阅端驱动的自适应策略。
 - 值得关注：3DGS 场景常达到 GB 规模，传统基于 TCP 的分段流难以支持细粒度、视口相关的交互加载。官方仓库以 MIT 许可证提供场景分区、LoD、视口优先级、缓存、服务端/客户端和 GPU 渲染组件；不过 README 仍将从 TCP 占位实现迁移到完整 QUIC 传输列为后续工作，因此当前更适合作为可研究和扩展的系统原型。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.18624) · [官方代码库](https://github.com/emanuele-artioli/MoQSplat)
+
+## 2026-09-19
+
+### SplashSplat：从真实多视角视频重建泼溅液体
+
+- 类型：论文、数据集、项目页与开源代码（Graphics，cs.GR）
+- 核心进展：SplashSplat 发布了由 7 台同步标定的 4K 相机构成的 20 个真实泼溅液体场景基准，包含逐视角液体掩码、容器掩码和扫描网格。方法把逐帧掩码融合为液体 SDF，用相邻 SDF 的 level-set transport 得到粗速度场，再沿流场推进并按新观测校正、重播种 Lagrangian carriers，最后解码为用于可微渲染的局部 Gaussian。
+- 值得关注：液滴、液丝和薄片的外观变化快且几乎没有纹理，传统动态 3DGS 很难稳定跟踪。SplashSplat 只在观测能约束的位置注入物理结构，在真实和合成基准上报告更物理可信的运动与更低训练成本，并支持无需重新优化的时间插值和液体风格迁移；数据集已发布，代码仓库已建立。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.20818) · [项目主页](https://niko-creater.github.io/splashsplat-web/) · [官方代码库](https://github.com/Niko-creater/Splashsplat) · [数据集下载](https://drive.google.com/file/d/1fCnn-G1VN_iFrZdrx1MjwjD_7vaLqW8p/view?usp=sharing)
