@@ -134,3 +134,12 @@
 - 核心进展：该工作将 Walk on Spheres（WoS）和 Walk on Stars（WoSt）从稳态问题推广到带初始条件、时变源项以及 Dirichlet/Neumann 边界条件的热方程。每条随机游走携带有限时间预算并逐步采样退出时间，从而直接估计任意目标时刻的解，不需要体网格、全局线性求解或顺序时间积分。
 - 值得关注：方法保留了无网格 Monte Carlo 求解器可并行、渐进和按查询计算的特点，同时消除了时间步选择与时间离散偏差；低偏差退出时间采样、拒绝采样和方差缩减使时变核计算可行。论文示例中，共享随机游走同时查询五个目标时刻带来约 3 倍运行效率提升，对复杂 CAD 几何的热分析和交互式物理场查询尤其有价值。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.12306) · [arXiv HTML 全文](https://arxiv.org/html/2609.12306v1)
+
+## 2026-09-17
+
+### MoQSplat：面向 6-DoF 视口的 3D Gaussian Splatting 渐进流传输
+
+- 类型：论文与开源原型（IEEE MMSP 2026；Multimedia / Graphics / Networking）
+- 核心进展：MoQSplat 将 3DGS 场景映射到 Media over QUIC（MoQ）传输层级：空间区域组成 Tracks，高斯聚类组成 Groups，不同渐进质量层组成独立流上的 Subgroups，从而减少连接级队头阻塞。客户端依据 6-DoF 视锥可见性、距离和注视中心动态订阅空间区域与质量层，并采用无状态、由订阅端驱动的自适应策略。
+- 值得关注：3DGS 场景常达到 GB 规模，传统基于 TCP 的分段流难以支持细粒度、视口相关的交互加载。官方仓库以 MIT 许可证提供场景分区、LoD、视口优先级、缓存、服务端/客户端和 GPU 渲染组件；不过 README 仍将从 TCP 占位实现迁移到完整 QUIC 传输列为后续工作，因此当前更适合作为可研究和扩展的系统原型。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.18624) · [官方代码库](https://github.com/emanuele-artioli/MoQSplat)
