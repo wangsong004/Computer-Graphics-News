@@ -152,3 +152,12 @@
 - 核心进展：SplashSplat 发布了由 7 台同步标定的 4K 相机构成的 20 个真实泼溅液体场景基准，包含逐视角液体掩码、容器掩码和扫描网格。方法把逐帧掩码融合为液体 SDF，用相邻 SDF 的 level-set transport 得到粗速度场，再沿流场推进并按新观测校正、重播种 Lagrangian carriers，最后解码为用于可微渲染的局部 Gaussian。
 - 值得关注：液滴、液丝和薄片的外观变化快且几乎没有纹理，传统动态 3DGS 很难稳定跟踪。SplashSplat 只在观测能约束的位置注入物理结构，在真实和合成基准上报告更物理可信的运动与更低训练成本，并支持无需重新优化的时间插值和液体风格迁移；数据集已发布，代码仓库已建立。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.20818) · [项目主页](https://niko-creater.github.io/splashsplat-web/) · [官方代码库](https://github.com/Niko-creater/Splashsplat) · [数据集下载](https://drive.google.com/file/d/1fCnn-G1VN_iFrZdrx1MjwjD_7vaLqW8p/view?usp=sharing)
+
+## 2026-09-20
+
+### S4R：用尺度延续法修复大规模刚体穿插
+
+- 类型：论文、项目页与代码/数据（ACM Transactions on Graphics 45(6)，SIGGRAPH Asia 2026）
+- 核心进展：S4R（Scaling for Rigid-Body Interpenetration Resolution）先围绕固定参考中心统一缩小所有刚体，使布局进入无穿插状态，再通过一系列以线性化分离间隙为目标的最小范数凸接触二次规划逐步恢复到完整尺度。保守的尺度事件界和冻结 witness 间隙预测减少了精确网格查询，末尾再进行完整评估和有限尾部修正。
+- 值得关注：程序化装配或生成式 3D 场景常会出现深度穿插，直接一次性修复容易造成大位移并破坏布局。S4R 在 Kubric、HY3D-Bench 和 Thingi10K 上最多 5000 个刚体时达到零报告穿插，位移保持较小且近似与场景规模无关，并提供 GPU 实现，适合把生成资产送入物理仿真、机器人训练和大规模场景布局流程。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.20524) · [项目主页（含代码与数据）](https://frank-zy-dou.github.io/projects/S4R/index.html) · [官方代码目录](https://github.com/Frank-ZY-Dou/Dynamics-Modeling/tree/main/Penetration_Solving)
