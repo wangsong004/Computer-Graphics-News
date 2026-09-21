@@ -161,3 +161,12 @@
 - 核心进展：S4R（Scaling for Rigid-Body Interpenetration Resolution）先围绕固定参考中心统一缩小所有刚体，使布局进入无穿插状态，再通过一系列以线性化分离间隙为目标的最小范数凸接触二次规划逐步恢复到完整尺度。保守的尺度事件界和冻结 witness 间隙预测减少了精确网格查询，末尾再进行完整评估和有限尾部修正。
 - 值得关注：程序化装配或生成式 3D 场景常会出现深度穿插，直接一次性修复容易造成大位移并破坏布局。S4R 在 Kubric、HY3D-Bench 和 Thingi10K 上最多 5000 个刚体时达到零报告穿插，位移保持较小且近似与场景规模无关，并提供 GPU 实现，适合把生成资产送入物理仿真、机器人训练和大规模场景布局流程。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.20524) · [项目主页（含代码与数据）](https://frank-zy-dou.github.io/projects/S4R/index.html) · [官方代码目录](https://github.com/Frank-ZY-Dou/Dynamics-Modeling/tree/main/Penetration_Solving)
+
+## 2026-09-21
+
+### Physically Based Rendering in the Latent Space：在生成模型特征空间中进行光传输
+
+- 类型：论文与代码仓库（Pacific Graphics 2026 Journal Track；Graphics，cs.GR）
+- 核心进展：该工作观察到光传输现象与生成模型 VAE latent 值的分布之间存在对应关系，将 physically based rendering 引入生成模型学习到的 feature space，并修改渲染方程，使可微渲染器能够优化一组场景参数，使渲染结果匹配预训练 latent。方法只用一张渲染图训练，随后可泛化到场景几何、光照和相机视角变化。
+- 值得关注：它把传统图形学的显式光照、几何和可微优化，与扩散模型的 latent 表示连接起来，为物理约束的生成式内容控制提供了新接口；相比直接在像素空间拟合，latent-space 光传输有望让生成模型获得更稳定的多视角和光照一致性。作者已建立 MIT 代码仓库，但截至收录时仓库仍标注为即将发布。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.21054) · [官方代码仓库（待发布）](https://github.com/trinity-graphics/latent-rendering) · [Computer Graphics Forum DOI](https://doi.org/10.1111/cgf.70633)
