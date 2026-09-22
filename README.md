@@ -170,3 +170,12 @@
 - 核心进展：该工作观察到光传输现象与生成模型 VAE latent 值的分布之间存在对应关系，将 physically based rendering 引入生成模型学习到的 feature space，并修改渲染方程，使可微渲染器能够优化一组场景参数，使渲染结果匹配预训练 latent。方法只用一张渲染图训练，随后可泛化到场景几何、光照和相机视角变化。
 - 值得关注：它把传统图形学的显式光照、几何和可微优化，与扩散模型的 latent 表示连接起来，为物理约束的生成式内容控制提供了新接口；相比直接在像素空间拟合，latent-space 光传输有望让生成模型获得更稳定的多视角和光照一致性。作者已建立 MIT 代码仓库，但截至收录时仓库仍标注为即将发布。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.21054) · [官方代码仓库（待发布）](https://github.com/trinity-graphics/latent-rendering) · [Computer Graphics Forum DOI](https://doi.org/10.1111/cgf.70633)
+
+## 2026-09-22
+
+### Mira-Scene：用像素对齐坐标场恢复生成式 3D 场景布局
+
+- 类型：论文与项目页（Graphics，cs.GR）
+- 核心进展：Mira-Scene 提出 bounded Canonical Coordinate Map（CCM），将可见物体像素映射到物体的 canonical surface coordinates，再与场景 Point Cloud Map 对齐以恢复物体的 3D 变换。相比直接回归无界且稀疏的位姿，像素级对应关系让生成式 3D 场景布局更容易利用图像证据。
+- 值得关注：该方法直接面向从图像恢复可用的 3D 场景布局，论文报告相对 SAM3D 的 3D-IoU 提升 39.8%、2D-IoU 提升 16.5%。这对场景重建、可编辑建模和后续具身/仿真环境生成都有实践价值，且项目页提供了可核验的可视化结果。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.23796) · [作者项目主页](https://sunyangtian.github.io/Mira-Scene-web/)
