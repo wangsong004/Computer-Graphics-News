@@ -179,3 +179,12 @@
 - 核心进展：Mira-Scene 提出 bounded Canonical Coordinate Map（CCM），将可见物体像素映射到物体的 canonical surface coordinates，再与场景 Point Cloud Map 对齐以恢复物体的 3D 变换。相比直接回归无界且稀疏的位姿，像素级对应关系让生成式 3D 场景布局更容易利用图像证据。
 - 值得关注：该方法直接面向从图像恢复可用的 3D 场景布局，论文报告相对 SAM3D 的 3D-IoU 提升 39.8%、2D-IoU 提升 16.5%。这对场景重建、可编辑建模和后续具身/仿真环境生成都有实践价值，且项目页提供了可核验的可视化结果。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.23796) · [作者项目主页](https://sunyangtian.github.io/Mira-Scene-web/)
+
+## 2026-09-23
+
+### PartLLM：统一的多模态 3D 部件分割基础模型
+
+- 类型：论文、项目页、开源代码与模型（SIGGRAPH Asia 2026 / ACM Transactions on Graphics；Graphics，cs.GR）
+- 核心进展：PartLLM 将文本引导分割、交互式分割和整形状语义分解统一为“意图条件的生成式”任务。模型根据输入形状和用户提示自回归地产生语义部件假设，将其作为掩码查询交给分解感知解码器，从而支持可控粒度的部件划分。
+- 值得关注：传统 3D 部件分割系统往往针对固定类别或单一交互方式分别训练，难以覆盖开放词汇和不同拆分粒度。PartLLM 用同一接口处理命名、点交互和完整形状分解，并已公开代码与模型权重，适合接入可编辑建模、资产检索和生成式 3D 工作流；论文报告其在多类任务上持续优于专用基线。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.25832) · [作者项目主页](https://czvvd.github.io/PartLLMPage/) · [官方代码库](https://github.com/czvvd/PartLLM) · [模型权重](https://huggingface.co/Czvvd/PartLLM)
