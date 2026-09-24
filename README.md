@@ -188,3 +188,12 @@
 - 核心进展：PartLLM 将文本引导分割、交互式分割和整形状语义分解统一为“意图条件的生成式”任务。模型根据输入形状和用户提示自回归地产生语义部件假设，将其作为掩码查询交给分解感知解码器，从而支持可控粒度的部件划分。
 - 值得关注：传统 3D 部件分割系统往往针对固定类别或单一交互方式分别训练，难以覆盖开放词汇和不同拆分粒度。PartLLM 用同一接口处理命名、点交互和完整形状分解，并已公开代码与模型权重，适合接入可编辑建模、资产检索和生成式 3D 工作流；论文报告其在多类任务上持续优于专用基线。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.25832) · [作者项目主页](https://czvvd.github.io/PartLLMPage/) · [官方代码库](https://github.com/czvvd/PartLLM) · [模型权重](https://huggingface.co/Czvvd/PartLLM)
+
+## 2026-09-24
+
+### DEAL-Grasp：用解耦对齐表示生成几何感知的灵巧抓取
+
+- 类型：论文、项目页与开源代码（Graphics，cs.GR；机器人，cs.RO）
+- 核心进展：DEAL-Grasp 将手-物交互状态拆成任务空间几何锚点与手部关节参数，在对齐空间中进行异构状态 flow matching，再通过闭式 Procrustes（Kabsch-SVD）对齐恢复全局刚体变换，并加入随时间变化的物理正则化。推理时只需积分学习到的向量场，无需测试时优化或额外物理引导。
+- 值得关注：把全局 SE(3) 运动与局部关节运动解耦，能减少直接在关节空间生成时的根部误差传播和不稳定接触。作者在 MultiDex 和 zero-shot RealDex 上报告了较高的抗扰抓取成功率、较小穿透和较高多样性，并展示了 UR10e + Shadow Dexterous Hand 的物理验证；MIT 代码已公开，适合研究数字人、VR 和具身操作中的可复用抓取生成。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.28131) · [作者项目主页](https://wmtlab.github.io/DEAL-Grasp/) · [官方代码库](https://github.com/wmtlab/DEAL-Grasp)
