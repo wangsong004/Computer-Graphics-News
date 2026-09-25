@@ -197,3 +197,12 @@
 - 核心进展：DEAL-Grasp 将手-物交互状态拆成任务空间几何锚点与手部关节参数，在对齐空间中进行异构状态 flow matching，再通过闭式 Procrustes（Kabsch-SVD）对齐恢复全局刚体变换，并加入随时间变化的物理正则化。推理时只需积分学习到的向量场，无需测试时优化或额外物理引导。
 - 值得关注：把全局 SE(3) 运动与局部关节运动解耦，能减少直接在关节空间生成时的根部误差传播和不稳定接触。作者在 MultiDex 和 zero-shot RealDex 上报告了较高的抗扰抓取成功率、较小穿透和较高多样性，并展示了 UR10e + Shadow Dexterous Hand 的物理验证；MIT 代码已公开，适合研究数字人、VR 和具身操作中的可复用抓取生成。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.28131) · [作者项目主页](https://wmtlab.github.io/DEAL-Grasp/) · [官方代码库](https://github.com/wmtlab/DEAL-Grasp)
+
+## 2026-09-25
+
+### CuACD：完全驻留 GPU 的近似凸分解
+
+- 类型：论文与开源 CUDA/Python 项目（SIGGRAPH Asia 2026；Computational Geometry，cs.CG；Graphics，cs.GR）
+- 核心进展：CuACD 将近似凸分解中的凸包计算、网格切平面、Hausdorff 评估、树搜索和后处理全部放入 GPU 常驻流水线，用 warp 级 CUDA kernel 和设备端堆分配器连接多个阶段，避免每轮通过 CPU 往返。它还把这些 GPU 组件以可复用模块和 Python API 的形式公开。
+- 值得关注：凸分解是物理引擎碰撞检测、运动规划和抓取学习的重要预处理步骤。官方 README 在 RTX 4090 上报告，相同或更好凹度下，相比 CoACD 在 V-HACD、PartNet-Mobility 和 Objaverse 子集上分别达到约 78 倍、80 倍和 104 倍加速；这使大规模生成资产和机器人数据集的几何预处理更接近交互式速度。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.28731) · [官方代码库](https://github.com/eliphatfs/cuacd) · [ACM DOI](https://doi.org/10.1145/3829340.3842217)
