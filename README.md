@@ -215,3 +215,12 @@
 - 核心进展：OREO 在 3D 生成器的训练过程中建立闭环：生成器先产生 3D 资产并渲染多视图，再由 2D 图像编辑器进行保留视点、几何结构和内容的强化编辑，将编辑结果作为动态伪目标；随后通过 latent-space 对比蒸馏，把当前渲染与编辑结果之间的保真度差距传回 3D 生成器。
 - 值得关注：它把 2D 扩散模型的细节先验接入 3D 生成训练，同时用源图像分支约束编辑轨迹，减少反复编辑造成的视点、身份和结构漂移。作者项目页展示了相较 Trellis 和 Photo3D 更细的纹理、多视图一致性和身份保持；这为提升可生成、可渲染 3D 资产的外观质量提供了清晰的训练接口。代码、数据集和模型目前仍标注为即将发布。
 - 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.29788) · [作者项目主页](https://theericma.github.io/oreo/)
+
+## 2026-09-27
+
+### three.js r186：增强实时光照、WebGPU 与 Gaussian Splat 渲染
+
+- 类型：开源图形库版本发布
+- 核心进展：three.js r186 引入 SunLight 与级联阴影贴图，加入支持环境光照的逆反射材质，并在 WebGPU/WebXR 路径完善 MSAA、存储缓冲区原子操作和 XR 渲染支持；同时提供基于 TSL 的 Gaussian Splat 渲染器/加载器与 glTF 导入能力，并新增 SSAO 与深度感知模糊相关节点。
+- 值得关注：这些改动覆盖实时渲染中常见的阳光阴影、材质外观、WebGPU 迁移和 3D Gaussian 内容加载，能直接减少应用层需要自行维护的渲染代码。对浏览器端可视化、交互式 3D 展示和 Gaussian Splat 场景部署尤其有实用价值。
+- 来源：[官方 r186 发布说明](https://github.com/mrdoob/three.js/releases/tag/r186) · [three.js 官方代码库](https://github.com/mrdoob/three.js)
