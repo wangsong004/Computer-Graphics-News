@@ -224,3 +224,12 @@
 - 核心进展：three.js r186 引入 SunLight 与级联阴影贴图，加入支持环境光照的逆反射材质，并在 WebGPU/WebXR 路径完善 MSAA、存储缓冲区原子操作和 XR 渲染支持；同时提供基于 TSL 的 Gaussian Splat 渲染器/加载器与 glTF 导入能力，并新增 SSAO 与深度感知模糊相关节点。
 - 值得关注：这些改动覆盖实时渲染中常见的阳光阴影、材质外观、WebGPU 迁移和 3D Gaussian 内容加载，能直接减少应用层需要自行维护的渲染代码。对浏览器端可视化、交互式 3D 展示和 Gaussian Splat 场景部署尤其有实用价值。
 - 来源：[官方 r186 发布说明](https://github.com/mrdoob/three.js/releases/tag/r186) · [three.js 官方代码库](https://github.com/mrdoob/three.js)
+
+## 2026-09-28
+
+### ChronoFuseGS：融合多时相 3D Gaussian 场景并可视化细粒度变化
+
+- 类型：论文、项目页与开源代码（Pacific Graphics 2026；Graphics，cs.GR）
+- 核心进展：ChronoFuseGS 将不同日期、地理覆盖范围部分重叠的独立 3D Gaussian Splatting 模型融合成一个场景，并为每个 Gaussian 记录其在各时相的有效性。跨时相共享稳定区域的信息可改善重建；新时相也能增量加入。基于逐 Gaussian 的持久性编码，系统可以突出所选时段发生变化的局部，同时保留未变化区域的原有颜色。
+- 值得关注：普通单时相 3DGS 难以同时呈现季节变化、积雪或洪水等长期事件。作者在跨约七个月、八个采集日的真实户外场景上报告，相比逐时相单独训练，融合模型有更好的新视角合成质量，并能显示物体局部和自然结构的细微变化。官方仓库提供训练、评估及 Unreal Engine 5.6 可视化工程，适合长期场景监测和数字孪生研究。
+- 来源：[arXiv 原始论文页面](https://arxiv.org/abs/2609.31339) · [作者项目主页](https://tobiasbat.github.io/ChronoFuseGS/) · [官方代码库](https://github.com/TobiasBat/ChronoFuseGS)
